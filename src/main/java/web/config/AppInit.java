@@ -10,7 +10,6 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         return new Class[] {
                 HibernateConfig.class
         };
-//        return null;
     }
 
     // Добавление конфигурации, в которой инициализируем ViewResolver, для корректного отображения jsp.
