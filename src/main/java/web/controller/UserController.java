@@ -35,7 +35,6 @@ public class UserController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateUser(@ModelAttribute("editUser") User editUser) {
-        System.out.println(editUser);
         userService.updateUser(editUser);
         return "redirect:/";
     }
