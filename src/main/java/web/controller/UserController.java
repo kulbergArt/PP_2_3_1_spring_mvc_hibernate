@@ -10,8 +10,12 @@ import web.service.UserService;
 @Controller
 public class UserController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = "/")
     public String MainPage(@ModelAttribute("newUser") User user,
@@ -21,7 +25,7 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("newUser") User user) {
         userService.create(user);
         return "redirect:/";
