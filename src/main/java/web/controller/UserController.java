@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/")
 public class UserController {
@@ -43,7 +45,7 @@ public class UserController {
     // @PatchMapping не работает у моей реализации. Ошибка: Request method 'POST' not supported.
     // При @GetMapping та же ошибка. Что логично. работает только через @PostMapping.
     @PatchMapping("/update")
-    public String updateUser(@ModelAttribute("editUser") User editUser) {
+    public String updateUser(@ModelAttribute("editUser") User editUser, HttpServletRequest request) {
         userService.updateUser(editUser);
         return "redirect:/";
     }
