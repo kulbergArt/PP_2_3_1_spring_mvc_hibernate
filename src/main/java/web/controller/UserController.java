@@ -34,16 +34,12 @@ public class UserController {
         return "redirect:/";
     }
 
-    // @DeleteMapping не работает у моей реализации. Ошибка: Request method 'GET' not supported.
-    // При @PostMapping та же ошибка. Что логично. работает только через @GetMapping.
     @DeleteMapping(value = "/delete")
     public String deleteUser(@RequestParam("userId") int id) {
         userService.deleteUser(id);
         return "redirect:/";
     }
 
-    // @PatchMapping не работает у моей реализации. Ошибка: Request method 'POST' not supported.
-    // При @GetMapping та же ошибка. Что логично. работает только через @PostMapping.
     @PatchMapping("/update")
     public String updateUser(@ModelAttribute("editUser") User editUser, HttpServletRequest request) {
         userService.updateUser(editUser);
