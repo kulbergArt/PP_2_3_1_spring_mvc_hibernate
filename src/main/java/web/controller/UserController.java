@@ -41,7 +41,7 @@ public class UserController {
     }
 
     @PatchMapping("/update")
-    public String updateUser(@ModelAttribute("editUser") User editUser, HttpServletRequest request) {
+    public String updateUser(@ModelAttribute("editUser") User editUser) {
         userService.updateUser(editUser);
         return "redirect:/";
     }
